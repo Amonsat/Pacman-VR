@@ -28,31 +28,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
 	{
-        //forward = transform.TransformPoint(Vector3.forward * .7f);
-        
-        //leftForward = transform.TransformPoint(Vector3.left * 2 + Vector3.forward / 2);
-        //rightForward = transform.TransformPoint(Vector3.right * 2 + Vector3.forward / 2);
-
-        //leftBack = transform.TransformPoint(Vector3.left * 2 + Vector3.back / 2);
-        //rightBack = transform.TransformPoint(Vector3.right * 2 + Vector3.back / 2);
-
         left = transform.TransformPoint(Vector3.left);
         right = transform.TransformPoint(Vector3.right);
 
-        //var forwardWall = Physics.Linecast(transform.position, forward, 1 << LayerMask.NameToLayer("Walls"));
-        
-        //var leftForwardWall = Physics.Linecast(transform.position, leftForward, 1 << LayerMask.NameToLayer("Walls"));
-        //var rightForwardWall = Physics.Linecast(transform.position, rightForward, 1 << LayerMask.NameToLayer("Walls"));
-
-        //var leftWall = Physics.Linecast(transform.position, left, 1 << LayerMask.NameToLayer("Walls"));
-        //var rightWall = Physics.Linecast(transform.position, right, 1 << LayerMask.NameToLayer("Walls"));
-
-        //var leftBackWall = Physics.Linecast(transform.position, leftBack, 1 << LayerMask.NameToLayer("Walls"));
-        //var rightBackWall = Physics.Linecast(transform.position, rightBack, 1 << LayerMask.NameToLayer("Walls"));
-
         var leftBlocked = Physics.CheckBox(left, checkBoxSize);
         var rightBlocked = Physics.CheckBox(right, checkBoxSize);
-        //print(leftBlocked);
 
         if (!classicMovement) 
 		{
@@ -81,8 +61,14 @@ public class PlayerMovement : MonoBehaviour
 
             transform.position = Vector3.Slerp(transform.position, correctPosition, Time.deltaTime);
 
+            //var x = Mathf.RoundToInt(transform.position.x);
+            //var z = Mathf.RoundToInt(transform.position.z);
+
+            var x = transform.position.x;
+            var z = transform.position.z;
+
             if (Input.GetKey(KeyCode.LeftArrow))
-                if (!rotated && !leftBlocked)
+                if (!rotated && /*!leftBlocked &&*/ x % 5 == 0 && z % 5 == 0)
                 {
                     transform.DORotate(new Vector3(0, -90, 0), rotateTime, RotateMode.LocalAxisAdd);
                     transform.eulerAngles = new Vector3( 0, Mathf.RoundToInt(transform.eulerAngles.y / 90) * 90, 0);                    
@@ -91,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.LeftArrow)) rotated = false;
 
             if (Input.GetKey(KeyCode.RightArrow))
-                if (!rotated && !rightBlocked)
+                if (!rotated && /*!rightBlocked &&*/ x % 5 == 0 && z % 5 == 0)
                 {
                     transform.DORotate(new Vector3(0, 90, 0), rotateTime, RotateMode.LocalAxisAdd);
                     transform.eulerAngles = new Vector3(0, Mathf.RoundToInt(transform.eulerAngles.y / 90) * 90, 0);
