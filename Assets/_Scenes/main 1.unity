@@ -5089,7 +5089,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 180096, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
       propertyPath: m_Name
-      value: Ghost 2.0 Pink
+      value: Ghost 2.0 Pinky
       objectReference: {fileID: 0}
     - target: {fileID: 19540768, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
       propertyPath: m_Speed
@@ -5123,9 +5123,30 @@ Prefab:
       propertyPath: color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11427610, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &325599038 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 180096, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
+  m_PrefabInternal: {fileID: 325599037}
+--- !u!114 &325599039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 325599038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6883bf39bb866744e9d286787d590fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelay: 5
+  forwardOffset: 40
 --- !u!1 &328008343
 GameObject:
   m_ObjectHideFlags: 0
@@ -10389,7 +10410,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 552276513}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300001, guid: 56974460811f5c94d802e9cd2e80521b,
     type: 2}
@@ -11301,7 +11322,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 180096, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
       propertyPath: m_Name
-      value: Ghost 2.0 Blue
+      value: Ghost 2.0 Inky
       objectReference: {fileID: 0}
     - target: {fileID: 19540768, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
       propertyPath: m_Speed
@@ -11339,9 +11360,31 @@ Prefab:
       propertyPath: color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11427610, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &669122379 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 180096, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
+  m_PrefabInternal: {fileID: 669122378}
+--- !u!114 &669122380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 669122379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c678b2f68ec8cfb4880ae36059174c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelay: 10
+  forwardOffset: 20
+  blinkyLink: {fileID: 2022865634}
 --- !u!1001 &672503962
 Prefab:
   m_ObjectHideFlags: 0
@@ -12971,7 +13014,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 180096, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
       propertyPath: m_Name
-      value: Ghost 2.0 Orange
+      value: Ghost 2.0 Clyde
       objectReference: {fileID: 0}
     - target: {fileID: 19540768, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
       propertyPath: m_Speed
@@ -13005,9 +13048,30 @@ Prefab:
       propertyPath: color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11427610, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &848711060 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 180096, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
+  m_PrefabInternal: {fileID: 848711059}
+--- !u!114 &848711061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 848711060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2418688481cd3eb47b1267411d7ad78c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelay: 0
+  homePoint: {x: 125, y: 5, z: -140}
 --- !u!1001 &868475425
 Prefab:
   m_ObjectHideFlags: 0
@@ -14217,7 +14281,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 994850886}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f171175167acad74ba3d78fd4d71c1e4, type: 3}
   m_Name: 
@@ -14225,7 +14289,7 @@ MonoBehaviour:
   speed: 30
   rotateSpeed: 160
   rotateTime: 0.2
-  classicMovement: 1
+  classicMovement: 0
   checkBoxSize: {x: 0.1, y: 0.1, z: 1}
 --- !u!82 &994850893
 AudioSource:
@@ -14331,7 +14395,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 994850886}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dbf27c70c1b84c48a2091e85c396359, type: 3}
   m_Name: 
@@ -24248,7 +24312,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 180096, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
       propertyPath: m_Name
-      value: Ghost 2.0 Red
+      value: Ghost 2.0 Blinky
       objectReference: {fileID: 0}
     - target: {fileID: 11427610, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
       propertyPath: color.r
@@ -24266,9 +24330,33 @@ Prefab:
       propertyPath: color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11427610, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &2022865634 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 414560, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
+  m_PrefabInternal: {fileID: 2022865633}
+--- !u!1 &2022865635 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 180096, guid: 1bc744da976b73f46816ad2e6d95ecac, type: 2}
+  m_PrefabInternal: {fileID: 2022865633}
+--- !u!114 &2022865636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2022865635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b4425f0f7908346b05cbcc85b7aeff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelay: 5
 --- !u!1001 &2024332319
 Prefab:
   m_ObjectHideFlags: 0
