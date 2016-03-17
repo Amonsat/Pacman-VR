@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
 	{
+        if (GameManager.instance.isMenu) return;
+        
         left = transform.TransformPoint(Vector3.left);
         right = transform.TransformPoint(Vector3.right);
 
