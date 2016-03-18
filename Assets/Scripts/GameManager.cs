@@ -14,6 +14,11 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject Menu;
     public bool isMenu;
+    
+    public GameObject Blinky;
+    public GameObject Pinky;
+    public GameObject Inky;
+    public GameObject Clyde;
 
     void Awake()
     {
@@ -27,9 +32,7 @@ public class GameManager : MonoBehaviour
     
     public void Init()
     {
-        Menu.SetActive(true);
-        isMenu = true;
-        //Time.timeScale = 0;
+        ShowMenu();
     }
 
     public void AddScore(int value)
@@ -50,6 +53,10 @@ public class GameManager : MonoBehaviour
         health--;
         playerHealthText.text = "Health: " + health;
         player.transform.position = new Vector3(5, 3, -75);
+        Blinky.transform.position = new Vector3(0, 1, 16);
+        Pinky.transform.position = new Vector3(-15, 1, 10);
+        Inky.transform.position = new Vector3(15, 1, 10);
+        Clyde.transform.position = new Vector3(0, 1, 10);
         if (health < 0) RestartLevel();
     }
     
@@ -60,12 +67,28 @@ public class GameManager : MonoBehaviour
 
     public void GameStart()
     {
-        Menu.SetActive(false);
-        isMenu = false;
+        HideMenu();
     }
     
     public void GameExit()
     {
         Application.Quit();
+    }
+    
+    public void ShowMenu()
+    {
+        Menu.SetActive(true);
+        isMenu = true;
+    }
+    
+    public void HideMenu()
+    {
+        Menu.SetActive(false);
+        isMenu = false;
+    }
+    
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) ShowMenu();
     }
 }

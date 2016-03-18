@@ -19,6 +19,12 @@ public class GhostClyde : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.isMenu) 
+        {
+            agent.destination = transform.position;
+            return;
+        }
+        
     	if ((Time.time < startDelay)) return;
     	// print(Time.time);
         var distance = Vector3.Distance(target.position, transform.position);

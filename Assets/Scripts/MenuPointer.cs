@@ -11,8 +11,10 @@ public class MenuPointer : MonoBehaviour
         transform.localPosition = positionStart;
     }
 	// Update is called once per frame
-	void Update () 
-    {
+	void Update ()     
+    {                        
+        if (!GameManager.instance.isMenu) return;
+        
 	    if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (transform.localPosition == positionStart) transform.localPosition = positionExit;

@@ -19,6 +19,12 @@ public class GhostInky : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.isMenu) 
+        {
+            agent.destination = transform.position;
+            return;
+        }
+        
         var targetPoint = (target.position + target.transform.forward * forwardOffset) - blinkyLink.position + target.position;        
         
     	if ((Time.time < startDelay)) return;

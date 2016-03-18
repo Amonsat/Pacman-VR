@@ -18,6 +18,12 @@ public class GhostPinky : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.isMenu) 
+        {
+            agent.destination = transform.position;
+            return;
+        }
+        
     	if ((Time.time < startDelay)) return;
     	// print(Time.time);
         agent.destination = target.position + target.transform.forward * forwardOffset;

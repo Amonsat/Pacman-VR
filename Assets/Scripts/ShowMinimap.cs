@@ -7,14 +7,16 @@ public class ShowMinimap : MonoBehaviour
 
 	void Update()
     {
+        if (GameManager.instance.isMenu) return;
+        
         if (Input.GetButtonDown("Fire2"))
         {
-            print("Fire2 down");
+//            print("Fire2 down");
             minimapCanvas.SetActive(true);
         }
         if (Input.GetButtonUp("Fire2"))
         {
-            print("Fire2 up");
+  //          print("Fire2 up");
             minimapCanvas.SetActive(false);
         }
         //else
