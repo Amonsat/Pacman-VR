@@ -12940,6 +12940,68 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 461386, guid: c85bbd7b2f64e554d9aec05795a97cef, type: 2}
   m_PrefabInternal: {fileID: 816839455}
+--- !u!1001 &834774904
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 994850890}
+    m_Modifications:
+    - target: {fileID: 404450, guid: f5f9c77c109f27c4eb047a6b576d3b14, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404450, guid: f5f9c77c109f27c4eb047a6b576d3b14, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404450, guid: f5f9c77c109f27c4eb047a6b576d3b14, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404450, guid: f5f9c77c109f27c4eb047a6b576d3b14, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404450, guid: f5f9c77c109f27c4eb047a6b576d3b14, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404450, guid: f5f9c77c109f27c4eb047a6b576d3b14, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404450, guid: f5f9c77c109f27c4eb047a6b576d3b14, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 404450, guid: f5f9c77c109f27c4eb047a6b576d3b14, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 404450, guid: f5f9c77c109f27c4eb047a6b576d3b14, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 404450, guid: f5f9c77c109f27c4eb047a6b576d3b14, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 404450, guid: f5f9c77c109f27c4eb047a6b576d3b14, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100386, guid: f5f9c77c109f27c4eb047a6b576d3b14, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: f5f9c77c109f27c4eb047a6b576d3b14, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &834774905 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 404450, guid: f5f9c77c109f27c4eb047a6b576d3b14, type: 2}
+  m_PrefabInternal: {fileID: 834774904}
 --- !u!1001 &846040202
 Prefab:
   m_ObjectHideFlags: 0
@@ -14238,9 +14300,7 @@ GameObject:
   - 114: {fileID: 994850892}
   - 114: {fileID: 994850894}
   - 82: {fileID: 994850893}
-  - 114: {fileID: 994850895}
   - 114: {fileID: 994850897}
-  - 114: {fileID: 994850896}
   - 114: {fileID: 994850898}
   m_Layer: 0
   m_Name: Pacman
@@ -14305,6 +14365,7 @@ Transform:
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 1860243501}
+  - {fileID: 834774905}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!54 &994850891
@@ -14423,35 +14484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65330bc8f1558ee48b5e6daa8dd9fd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &994850895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 994850886}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6d44e2bbb3408449cfe6d9166495f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  rotateTime: 0.2
---- !u!114 &994850896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 994850886}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dbf27c70c1b84c48a2091e85c396359, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gf_moveSpeed: 20
-  gf_rotationSpeed: 60
-  gridSize: 10
-  maxMoveTime: 0.5
-  maxRotationTime: 1
 --- !u!114 &994850897
 MonoBehaviour:
   m_ObjectHideFlags: 0
