@@ -8,13 +8,17 @@ public class GhostInky : MonoBehaviour
     public float forwardOffset = 2;
     public Transform blinkyLink;
 
-    NavMeshAgent agent;
-    Transform target;        
+    private NavMeshAgent agent;
+    private Transform target;        
+    private Vector3 defaultPosition;
+    private float startDelayOffset;
 
     void Start()
     {
+        defaultPosition = transform.position;
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        startDelayOffset = startDelay;
     }
 
     void Update()
@@ -27,10 +31,19 @@ public class GhostInky : MonoBehaviour
         
         var targetPoint = (target.position + target.transform.forward * forwardOffset) - blinkyLink.position + target.position;        
         
-    	if ((Time.time < startDelay)) return;
+    	if ((Time.time < startDelayOffset)) return;
     	// print(Time.time);
         
         agent.destination = targetPoint;
     }    
+    
+    public void Reset()
+    {
+        agent.enabled = false;
+        transform.position = defaultPosition;
+        // transform.Translate(defaultPosition);
+        startDelayOffset = startDelay + Time.time;
+        agent.enabled = true;
+    }
 
 }

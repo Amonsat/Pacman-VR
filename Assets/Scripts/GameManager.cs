@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject Menu;
     public bool isMenu;
+    public bool isControlBlocked;
     
     public GameObject Blinky;
     public GameObject Pinky;
@@ -50,13 +51,22 @@ public class GameManager : MonoBehaviour
     
     public void LoseHealth()
     {
+        
+        player.transform.position = new Vector3(5, 3, -75);
+        
+        // Blinky.transform.position = new Vector3(0, 1, 16);
+        // Pinky.transform.position = new Vector3(-15, 1, 10);
+        // .transform.position = new Vector3(15, 1, 10);
+        // Clyde.transform.position = new Vector3(0, 1, 10);
+        print("lose health");
+        Blinky.GetComponent<GhostBlinky>().Reset();
+        Pinky.GetComponent<GhostPinky>().Reset();
+        Inky.GetComponent<GhostInky>().Reset();
+        Clyde.GetComponent<GhostClyde>().Reset();
+        
         health--;
         playerHealthText.text = "Health: " + health;
-        player.transform.position = new Vector3(5, 3, -75);
-        Blinky.transform.position = new Vector3(0, 1, 16);
-        Pinky.transform.position = new Vector3(-15, 1, 10);
-        Inky.transform.position = new Vector3(15, 1, 10);
-        Clyde.transform.position = new Vector3(0, 1, 10);
+        
         if (health < 0) RestartLevel();
     }
     
