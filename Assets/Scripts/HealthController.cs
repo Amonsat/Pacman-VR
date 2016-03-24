@@ -12,18 +12,24 @@ public class HealthController : MonoBehaviour
         anim = GetComponent<Animator>();
     }
     
-    void OnTriggerEnter(Collider other)
-    {
-        if (!other.CompareTag("Ghost")) return;
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     if (!other.CompareTag("Ghost")) return;
         
-        GameManager.instance.isMenu = true;
-        anim.SetTrigger("LoseHealth");        
-        //GameManager.instance.LoseHealth();
-    }
+    //     GameManager.instance.isMenu = true;
+    //     anim.SetTrigger("LoseHealth");        
+    //     //GameManager.instance.LoseHealth();
+    // }
     
     void LoseHealth()
     {
         GameManager.instance.isMenu = false;
         GameManager.instance.LoseHealth();
+    }
+    
+    public void SetDamage()
+    {
+        GameManager.instance.isMenu = true;
+        anim.SetTrigger("LoseHealth");     
     }
 }

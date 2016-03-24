@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GhostInky : MonoBehaviour
+public class GhostBlinky : MonoBehaviour
 {
     // public Transform target;
-    public float startDelay;
-    public float forwardOffset = 2;
-    public Transform blinkyLink;
-
+    public float startDelay;    
+    public Vector3 homePoint;
+    
     private NavMeshAgent agent;
-    private Transform target;        
+    private Transform target;
     private Vector3 defaultPosition;
     private float startDelayOffset;
 
@@ -29,13 +28,17 @@ public class GhostInky : MonoBehaviour
             return;
         }
         
-        var targetPoint = (target.position + target.transform.forward * forwardOffset) - blinkyLink.position + target.position;        
-        
     	if ((Time.time < startDelayOffset)) return;
-    	// print(Time.time);
         
-        agent.destination = targetPoint;
-    }    
+        if (GameManager.instance.huntMode) 
+        {
+            agent.destination = homePoint;
+            return;
+        }
+        
+    	// print(Time.time);
+        agent.destination = target.position;
+    }
     
     public void Reset()
     {

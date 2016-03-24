@@ -9,12 +9,12 @@ public class Move3 : MonoBehaviour
 
     float moving = 0f;
     Vector3 targetPos;
-    Rigidbody rb;
+//    Rigidbody rb;
 	
     void Start()
     {
         targetPos = transform.position;
-        rb = GetComponent<Rigidbody>();
+   //     rb = GetComponent<Rigidbody>();
     }
 
     void Update()

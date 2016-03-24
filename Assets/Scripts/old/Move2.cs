@@ -7,12 +7,12 @@ public class Move2 : MonoBehaviour {
     public float speed;
     public float rotateTime;
 
-    private Rigidbody rb;
+//    private Rigidbody rb;
     private bool rotated = false;
 
 	// Use this for initialization
 	void Start () {
-        rb = GetComponent<Rigidbody>();
+  //      rb = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -20,8 +20,8 @@ public class Move2 : MonoBehaviour {
         //rb.velocity = transform.forward * speed;
         transform.DOMove(transform.position + transform.forward * 10, .5f);
 
-        var x = transform.position.x;
-        var z = transform.position.z;
+//        var x = transform.position.x;
+//        var z = transform.position.z;
 
         if (Input.GetKey(KeyCode.LeftArrow))
             if (!rotated /*!leftBlocked &&*/)

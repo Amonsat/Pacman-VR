@@ -16,10 +16,14 @@ public class GameManager : MonoBehaviour
     public bool isMenu;
     public bool isControlBlocked;
     
-    public GameObject Blinky;
-    public GameObject Pinky;
-    public GameObject Inky;
-    public GameObject Clyde;
+    // public GameObject Blinky;
+    // public GameObject Pinky;
+    // public GameObject Inky;
+    // public GameObject Clyde;
+    public bool huntMode;
+    public float HuntModeDuration;
+    private float huntModeOffset;
+    private Ghost[] ghosts;
 
     void Awake()
     {
@@ -34,6 +38,10 @@ public class GameManager : MonoBehaviour
     public void Init()
     {
         ShowMenu();
+        
+        GameObject[] gos = GameObject.FindGameObjectsWithTag("Ghost");
+        ghosts = new Ghost[gos.Length];
+        for (var i = 0; i < ghosts.Length; i++) ghosts[i] = gos[i].GetComponent<Ghost>();
     }
 
     public void AddScore(int value)
@@ -54,15 +62,11 @@ public class GameManager : MonoBehaviour
         
         player.transform.position = new Vector3(5, 3, -75);
         
-        // Blinky.transform.position = new Vector3(0, 1, 16);
-        // Pinky.transform.position = new Vector3(-15, 1, 10);
-        // .transform.position = new Vector3(15, 1, 10);
-        // Clyde.transform.position = new Vector3(0, 1, 10);
-        print("lose health");
-        Blinky.GetComponent<GhostBlinky>().Reset();
-        Pinky.GetComponent<GhostPinky>().Reset();
-        Inky.GetComponent<GhostInky>().Reset();
-        Clyde.GetComponent<GhostClyde>().Reset();
+        foreach (var ghost in ghosts) ghost.Reset();
+        // Blinky.GetComponent<Ghost>().Reset();
+        // Pinky.GetComponent<Ghost>().Reset();
+        // Inky.GetComponent<Ghost>().Reset();
+        // Clyde.GetComponent<Ghost>().Reset();
         
         health--;
         playerHealthText.text = "Health: " + health;
@@ -100,5 +104,30 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) ShowMenu();
+        
+        if (huntMode && Time.time > huntModeOffset) HuntModeDisable();
+    }
+    
+    public void HuntModeEnable()
+    {
+        huntMode = true;
+        huntModeOffset = Time.time + HuntModeDuration;
+        
+        foreach(var ghost in ghosts) ghost.HuntModeEnable();
+        // Blinky.GetComponent<Ghost>().HuntModeEnable();
+        // Pinky.GetComponent<Ghost>().HuntModeEnable();
+        // Inky.GetComponent<Ghost>().HuntModeEnable();
+        // Clyde.GetComponent<Ghost>().HuntModeEnable();
+    }
+    
+    public void HuntModeDisable()
+    {
+        huntMode = false;
+        
+        foreach(var ghost in ghosts) ghost.HuntModeDisable();
+        // Blinky.GetComponent<Ghost>().HuntModeDisable();
+        // Pinky.GetComponent<Ghost>().HuntModeDisable();
+        // Inky.GetComponent<Ghost>().HuntModeDisable();
+        // Clyde.GetComponent<Ghost>().HuntModeDisable();
     }
 }

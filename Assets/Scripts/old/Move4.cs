@@ -13,15 +13,15 @@ public class Move4 : MonoBehaviour
     float rotation = 0f;
     Vector3 targetPos;
     Vector3 targetRotation;
-    Rigidbody rb;
-    Transform tr;
+    // Rigidbody rb;
+    // Transform tr;
 	
     void Start()
     {
         targetPos = transform.position;
         targetRotation = transform.eulerAngles;
-        rb = GetComponent<Rigidbody>();
-        tr = GetComponent<Transform>();
+        // rb = GetComponent<Rigidbody>();
+        // tr = GetComponent<Transform>();
     }
 
     void Update()

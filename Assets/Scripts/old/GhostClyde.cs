@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GhostPinky : MonoBehaviour
+public class GhostClyde : MonoBehaviour
 {
     // public Transform target;
     public float startDelay;
-    public float forwardOffset = 4;
+    public Vector3 homePoint;
 
+    private float startDelayOffset; 
     private NavMeshAgent agent;
     private Transform target;
     private Vector3 defaultPosition;
-    private float startDelayOffset;
 
     void Start()
     {
@@ -29,8 +29,18 @@ public class GhostPinky : MonoBehaviour
         }
         
     	if ((Time.time < startDelayOffset)) return;
+        
+        if (GameManager.instance.huntMode) 
+        {
+            agent.destination = homePoint;
+            return;
+        }
+        
     	// print(Time.time);
-        agent.destination = target.position + target.transform.forward * forwardOffset;
+        var distance = Vector3.Distance(target.position, transform.position);
+        
+        if ( distance > 90 ) agent.destination = target.position;
+        else agent.destination = homePoint;
     }
     
     public void Reset()
@@ -39,7 +49,7 @@ public class GhostPinky : MonoBehaviour
         transform.position = defaultPosition;
         // transform.Translate(defaultPosition);
         startDelayOffset = startDelay + Time.time;
+        // print("delay: " + startDelay + " Time: " + Time.time);
         agent.enabled = true;
     }
-
 }
