@@ -9,12 +9,12 @@ public class ShowMinimap : MonoBehaviour
     {
         if (GameManager.instance.isMenu) return;
         
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Jump"))
         {
-//            print("Fire2 down");
+        //    print("Fire2 down");
             minimapCanvas.SetActive(true);
         }
-        if (Input.GetButtonUp("Fire2"))
+        if (Input.GetButtonUp("Jump"))
         {
   //          print("Fire2 up");
             minimapCanvas.SetActive(false);

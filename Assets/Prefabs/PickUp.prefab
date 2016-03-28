@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -125, y: 5, z: 140}
+  m_LocalPosition: {x: -125, y: 15, z: 140}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -90,6 +90,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 10
   clip: {fileID: 8300000, guid: b0c5137ecdadba74eaa392daa5e3079f, type: 3}
+  ScoreText: {fileID: 143310, guid: 3d01bedc3e382cb4cbe70a6cd53d267d, type: 2}
+  ScoreLifetime: 2
 --- !u!114 &11473504
 MonoBehaviour:
   m_ObjectHideFlags: 1

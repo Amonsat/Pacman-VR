@@ -13,6 +13,8 @@ public class Ghost : MonoBehaviour
     public Material HuntModeEatedMaterial;
     public MeshRenderer sub01;
     public MeshRenderer sub02;
+    public GameObject ScoreText;
+    public float ScoreLifetime;
     
     private NavMeshAgent agent;
     protected Transform target;
@@ -81,6 +83,13 @@ public class Ghost : MonoBehaviour
         if (state == State.Escape) 
         {
             state = State.Eated;
+            
+            ScoreText.GetComponent<ScoreText>().SetText(Score.ToString());
+            var targetPosition = transform.position;
+            targetPosition.y = 6f;
+            var scoreText = (GameObject) Instantiate(ScoreText, targetPosition, Quaternion.identity);
+            Destroy(scoreText, ScoreLifetime);
+            
             GameManager.instance.AddScore(Score);
             ChangeMaterial(HuntModeEatedMaterial);
             return;
