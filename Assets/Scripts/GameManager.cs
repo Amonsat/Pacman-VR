@@ -9,21 +9,26 @@ public class GameManager : MonoBehaviour
     public int score;
     public Text scoreText;
     public Text playerHealthText;
+    public Slider playerHealthSlider;
     public int pickupsCount;
     public int health;
     public GameObject player;
-    public GameObject Menu;
+    public GameObject MainMenu;
+    public GameObject GameUI;
+    public GameObject Gameover;
+    public Text GameoverScore;
     public bool isMenu;
     public bool isControlBlocked;
     
-    // public GameObject Blinky;
-    // public GameObject Pinky;
-    // public GameObject Inky;
-    // public GameObject Clyde;
     public bool huntMode;
     public float HuntModeDuration;
     private float huntModeOffset;
     private Ghost[] ghosts;
+    private AudioSource audioSource;
+    
+    [HeaderAttribute("Audio")]
+    public AudioClip defaultMusic;
+    public AudioClip huntModeMusic;
 
     void Awake()
     {
@@ -37,17 +42,23 @@ public class GameManager : MonoBehaviour
     
     public void Init()
     {
+        HideGameUI();
         ShowMenu();
+        
+        audioSource = GetComponent<AudioSource>();
         
         GameObject[] gos = GameObject.FindGameObjectsWithTag("Ghost");
         ghosts = new Ghost[gos.Length];
         for (var i = 0; i < ghosts.Length; i++) ghosts[i] = gos[i].GetComponent<Ghost>();
+        
+        scoreText.text = "Score: " + score.ToString("D5");
+        playerHealthSlider.value = health;
     }
 
     public void AddScore(int value)
     {
         score += value;
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Score: " + score.ToString("D5");
     }
 
     public void GetPickup(PickUp pickup)
@@ -63,18 +74,20 @@ public class GameManager : MonoBehaviour
         player.transform.position = new Vector3(5, 3, -75);
         
         foreach (var ghost in ghosts) ghost.Reset();
-        // Blinky.GetComponent<Ghost>().Reset();
-        // Pinky.GetComponent<Ghost>().Reset();
-        // Inky.GetComponent<Ghost>().Reset();
-        // Clyde.GetComponent<Ghost>().Reset();
         
         health--;
-        playerHealthText.text = "Health: " + health;
+        playerHealthSlider.value = health;
         
-        if (health < 0) RestartLevel();
+        if (health < 0) ShowGameover(); //RestartLevel();
     }
     
-    private void RestartLevel()
+    private void ShowGameover()
+    {
+        GameoverScore.text = "Your score: " + score.ToString("D5");
+        Gameover.SetActive(true);
+    }
+    
+    public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -82,6 +95,7 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         HideMenu();
+        ShowGameUI();
     }
     
     public void GameExit()
@@ -91,14 +105,25 @@ public class GameManager : MonoBehaviour
     
     public void ShowMenu()
     {
-        Menu.SetActive(true);
+        MainMenu.SetActive(true);
         isMenu = true;
+        MainMenu.GetComponent<MainMenu>().DefaultMenuItemSelect();
     }
     
     public void HideMenu()
     {
-        Menu.SetActive(false);
+        MainMenu.SetActive(false);
         isMenu = false;
+    }
+    
+    public void ShowGameUI()
+    {
+        GameUI.SetActive(true);        
+    }
+    
+    public void HideGameUI()
+    {
+        GameUI.SetActive(false);
     }
     
     void Update()
@@ -113,21 +138,23 @@ public class GameManager : MonoBehaviour
         huntMode = true;
         huntModeOffset = Time.time + HuntModeDuration;
         
+        audioSource.clip = huntModeMusic;
+        audioSource.Play();
+        
+        player.GetComponent<PlayerHuntMode>().HuntmodeEnable();
+        
         foreach(var ghost in ghosts) ghost.HuntModeEnable();
-        // Blinky.GetComponent<Ghost>().HuntModeEnable();
-        // Pinky.GetComponent<Ghost>().HuntModeEnable();
-        // Inky.GetComponent<Ghost>().HuntModeEnable();
-        // Clyde.GetComponent<Ghost>().HuntModeEnable();
     }
     
     public void HuntModeDisable()
     {
         huntMode = false;
         
+        audioSource.clip = defaultMusic;
+        audioSource.Play();
+        
+        player.GetComponent<PlayerHuntMode>().HuntmodeDisable();
+        
         foreach(var ghost in ghosts) ghost.HuntModeDisable();
-        // Blinky.GetComponent<Ghost>().HuntModeDisable();
-        // Pinky.GetComponent<Ghost>().HuntModeDisable();
-        // Inky.GetComponent<Ghost>().HuntModeDisable();
-        // Clyde.GetComponent<Ghost>().HuntModeDisable();
     }
 }

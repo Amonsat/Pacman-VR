@@ -90,14 +90,14 @@ Material:
         first:
           name: _DetailTex
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: e1c70e9e316cf4e41869a4b0405da43b, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _MainBump
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: b774587617b663b449d39ca71d3d8a39, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -105,6 +105,13 @@ Material:
           name: _DetailBump
         second:
           m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Mask
+        second:
+          m_Texture: {fileID: 2800000, guid: b774587617b663b449d39ca71d3d8a39, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -119,11 +126,11 @@ Material:
       data:
         first:
           name: _Cutoff
-        second: 0.5
+        second: 0.384
       data:
         first:
           name: _Shininess
-        second: 0.103
+        second: 0.1
       data:
         first:
           name: _WindQuality
@@ -204,6 +211,14 @@ Material:
         first:
           name: _Strength
         second: 0.266
+      data:
+        first:
+          name: _InvFade
+        second: 1
+      data:
+        first:
+          name: _Focus
+        second: -100
     m_Colors:
       data:
         first:
@@ -216,7 +231,7 @@ Material:
       data:
         first:
           name: _SpecColor
-        second: {r: 0.23427987, g: 0, b: 0.9705882, a: 0.484}
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _HueVariation
@@ -224,4 +239,12 @@ Material:
       data:
         first:
           name: _Specular
-        second: {r: 1, g: 1, b: 1, a: 0.428}
+        second: {r: 0, g: 0, b: 0, a: 0.653}
+      data:
+        first:
+          name: _TintColor
+        second: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+      data:
+        first:
+          name: _EmisColor
+        second: {r: 0.2, g: 0.2, b: 0.2, a: 0}
