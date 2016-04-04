@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,22 +15,30 @@ public class GameManager : MonoBehaviour
     public int pickupsCount;
     public int health;
     public GameObject player;
-    public GameObject MainMenu;
-    public GameObject GameUI;
-    public GameObject Gameover;
+    
     public Text GameoverScore;
     public bool isMenu;
     public bool isControlBlocked;
     
     public bool huntMode;
     public float HuntModeDuration;
+    
+    
     private float huntModeOffset;
     private Ghost[] ghosts;
     private AudioSource audioSource;
+    private string playerName;
     
-    [HeaderAttribute("Audio")]
+    [Header("Audio")]
     public AudioClip defaultMusic;
     public AudioClip huntModeMusic;
+    
+    [Header("UI")]
+    public GameObject MainMenu;
+    public GameObject GameUI;
+    public GameObject Gameover;
+    public GameObject Leaderboard;
+    public GameObject Nameboard;
 
     void Awake()
     {
@@ -53,6 +63,11 @@ public class GameManager : MonoBehaviour
         
         scoreText.text = "Score: " + score.ToString("D5");
         playerHealthSlider.value = health;
+    }
+
+    public void SetPlayerName(string playerName)
+    {        
+        this.playerName = playerName.First().ToString().ToUpper() + playerName.Substring(1);
     }
 
     public void AddScore(int value)
@@ -81,20 +96,38 @@ public class GameManager : MonoBehaviour
         if (health < 0) ShowGameover(); //RestartLevel();
     }
     
+    public void LeaderboardShow()
+    {
+        Gameover.SetActive(false);
+        Leaderboard.GetComponent<Leaderboard>().SaveScore(playerName, score);
+        Leaderboard.SetActive(true);
+        Leaderboard.GetComponent<MainMenu>().DefaultMenuItemSelect();
+    }
+    
     private void ShowGameover()
     {
+        HideGameUI();
         GameoverScore.text = "Your score: " + score.ToString("D5");
         Gameover.SetActive(true);
+        Gameover.GetComponent<MainMenu>().DefaultMenuItemSelect();
+        // isMenu = true;
     }
     
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    
+    public void NameboardShow()
+    {
+        HideMenu();
+        Nameboard.SetActive(true);
+        Nameboard.GetComponent<MainMenu>().DefaultMenuItemSelect();
+    }
 
     public void GameStart()
     {
-        HideMenu();
+        Nameboard.SetActive(false);
         ShowGameUI();
     }
     
@@ -106,19 +139,19 @@ public class GameManager : MonoBehaviour
     public void ShowMenu()
     {
         MainMenu.SetActive(true);
-        isMenu = true;
+        // isMenu = true;
         MainMenu.GetComponent<MainMenu>().DefaultMenuItemSelect();
     }
     
     public void HideMenu()
     {
         MainMenu.SetActive(false);
-        isMenu = false;
+        // isMenu = false;
     }
     
     public void ShowGameUI()
     {
-        GameUI.SetActive(true);        
+        GameUI.SetActive(true);                
     }
     
     public void HideGameUI()

@@ -1,7 +1,6 @@
 ﻿ using UnityEngine;
  using System.Collections.Generic;
  using UnityEngine.UI;
- using UnityEditor;
  
  [AddComponentMenu("UI/Effects/Gradient")]
  public class Gradient : BaseMeshEffect

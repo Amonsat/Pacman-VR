@@ -1,19 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour 
 {
     
-    public GameObject defaultButton;
-    
-    void Start()
-    {
-        DefaultMenuItemSelect();
-    }
+    public Button defaultButton;
     
     public void DefaultMenuItemSelect()
     {
-        EventSystem.current.SetSelectedGameObject(defaultButton);
+        // EventSystem.current.SetSelectedGameObject(null);        
+        defaultButton.Select();
+    }
+    
+    void OnEnable() 
+    {
+        GameManager.instance.isMenu = true;
+        // defaultButton.Select();
+    }
+    
+    void OnDisable()
+    {
+        GameManager.instance.isMenu = false;
     }
 }
