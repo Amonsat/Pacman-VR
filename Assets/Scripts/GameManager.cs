@@ -86,7 +86,8 @@ public class GameManager : MonoBehaviour
     public void LoseHealth()
     {
         
-        player.transform.position = new Vector3(5, 3, -75);
+        //player.transform.position = new Vector3(5, 3, -75);
+        player.GetComponent<PlayerMovementWaypoint>().ResetPosition();
         
         foreach (var ghost in ghosts) ghost.Reset();
         
